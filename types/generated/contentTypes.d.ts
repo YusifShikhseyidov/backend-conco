@@ -369,12 +369,14 @@ export interface ApiSliderImagesHeadingSliderImagesHeading
     singularName: 'slider-images-heading';
     pluralName: 'slider-images-headings';
     displayName: 'slider-images-heading';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     slider_heading: Attribute.String & Attribute.Required;
+    slider_img: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
