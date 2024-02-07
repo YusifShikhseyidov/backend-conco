@@ -836,6 +836,115 @@ export interface ApiFinishedProjectFinishedProject
   };
 }
 
+export interface ApiOngoingProjectOngoingProject extends Schema.CollectionType {
+  collectionName: 'ongoing_projects';
+  info: {
+    singularName: 'ongoing-project';
+    pluralName: 'ongoing-projects';
+    displayName: 'ongoing-project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    ongoing_project_heading: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ongoing_project_imgs: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ongoing-project.ongoing-project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ongoing-project.ongoing-project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::ongoing-project.ongoing-project',
+      'oneToMany',
+      'api::ongoing-project.ongoing-project'
+    >;
+    locale: Attribute.String;
+  };
+}
+
+export interface ApiRestorationProjectRestorationProject
+  extends Schema.CollectionType {
+  collectionName: 'restoration_projects';
+  info: {
+    singularName: 'restoration-project';
+    pluralName: 'restoration-projects';
+    displayName: 'restoration-project';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    restoration_project_heading: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    restoration_project_imgs: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::restoration-project.restoration-project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::restoration-project.restoration-project',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::restoration-project.restoration-project',
+      'oneToMany',
+      'api::restoration-project.restoration-project'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiSliderImagesHeadingSliderImagesHeading
   extends Schema.CollectionType {
   collectionName: 'slider_images_headings';
@@ -948,6 +1057,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::finished-project.finished-project': ApiFinishedProjectFinishedProject;
+      'api::ongoing-project.ongoing-project': ApiOngoingProjectOngoingProject;
+      'api::restoration-project.restoration-project': ApiRestorationProjectRestorationProject;
       'api::slider-images-heading.slider-images-heading': ApiSliderImagesHeadingSliderImagesHeading;
       'api::vacancy.vacancy': ApiVacancyVacancy;
     }
