@@ -890,6 +890,36 @@ export interface ApiOngoingProjectOngoingProject extends Schema.CollectionType {
   };
 }
 
+export interface ApiOrdererOrderer extends Schema.CollectionType {
+  collectionName: 'orderers';
+  info: {
+    singularName: 'orderer';
+    pluralName: 'orderers';
+    displayName: 'orderer';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    orderer_logo: Attribute.Media & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::orderer.orderer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::orderer.orderer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRestorationProjectRestorationProject
   extends Schema.CollectionType {
   collectionName: 'restoration_projects';
@@ -1058,6 +1088,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::finished-project.finished-project': ApiFinishedProjectFinishedProject;
       'api::ongoing-project.ongoing-project': ApiOngoingProjectOngoingProject;
+      'api::orderer.orderer': ApiOrdererOrderer;
       'api::restoration-project.restoration-project': ApiRestorationProjectRestorationProject;
       'api::slider-images-heading.slider-images-heading': ApiSliderImagesHeadingSliderImagesHeading;
       'api::vacancy.vacancy': ApiVacancyVacancy;
