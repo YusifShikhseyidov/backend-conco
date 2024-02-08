@@ -834,6 +834,60 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
 }
 
+export interface ApiAboutUsCollectionTypeAboutUsCollectionType
+  extends Schema.CollectionType {
+  collectionName: 'about_us_collection_types';
+  info: {
+    singularName: 'about-us-collection-type';
+    pluralName: 'about-us-collection-types';
+    displayName: 'about-us-collection-type';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    conco_about_us: Attribute.Text &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    conco_about_us_cover_img: Attribute.Media &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::about-us-collection-type.about-us-collection-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::about-us-collection-type.about-us-collection-type',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::about-us-collection-type.about-us-collection-type',
+      'oneToMany',
+      'api::about-us-collection-type.about-us-collection-type'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface ApiFinishedProjectFinishedProject
   extends Schema.CollectionType {
   collectionName: 'finished_projects';
@@ -1140,6 +1194,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::about-us-collection-type.about-us-collection-type': ApiAboutUsCollectionTypeAboutUsCollectionType;
       'api::finished-project.finished-project': ApiFinishedProjectFinishedProject;
       'api::ongoing-project.ongoing-project': ApiOngoingProjectOngoingProject;
       'api::orderer.orderer': ApiOrdererOrderer;
