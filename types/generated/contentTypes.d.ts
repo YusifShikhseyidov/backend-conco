@@ -1088,7 +1088,7 @@ export interface ApiSliderImagesHeadingSliderImagesHeading
   info: {
     singularName: 'slider-images-heading';
     pluralName: 'slider-images-headings';
-    displayName: 'slider-images-heading';
+    displayName: 'slider-images-carousel';
     description: '';
   };
   options: {

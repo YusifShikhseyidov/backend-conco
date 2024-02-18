@@ -4,7 +4,7 @@
   "info": {
     "singularName": "slider-images-heading",
     "pluralName": "slider-images-headings",
-    "displayName": "slider-images-heading",
+    "displayName": "slider-images-carousel",
     "description": ""
   },
   "options": {
@@ -17,12 +17,12 @@
       "required": true
     },
     "slider_img": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": true,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }
