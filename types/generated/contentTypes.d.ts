@@ -841,6 +841,7 @@ export interface ApiAboutUsCollectionTypeAboutUsCollectionType
     singularName: 'about-us-collection-type';
     pluralName: 'about-us-collection-types';
     displayName: 'about-us-collection-type';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -861,7 +862,7 @@ export interface ApiAboutUsCollectionTypeAboutUsCollectionType
     conco_about_us_cover_img: Attribute.Media &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
@@ -1144,6 +1145,7 @@ export interface ApiVacancyVacancy extends Schema.CollectionType {
     singularName: 'vacancy';
     pluralName: 'vacancies';
     displayName: 'vacancy';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1171,7 +1173,7 @@ export interface ApiVacancyVacancy extends Schema.CollectionType {
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;

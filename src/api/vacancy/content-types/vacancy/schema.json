@@ -4,7 +4,8 @@
   "info": {
     "singularName": "vacancy",
     "pluralName": "vacancies",
-    "displayName": "vacancy"
+    "displayName": "vacancy",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -36,7 +37,7 @@
     "vacancy_salary": {
       "pluginOptions": {
         "i18n": {
-          "localized": true
+          "localized": false
         }
       },
       "type": "integer",
