@@ -1094,9 +1094,26 @@ export interface ApiSliderImagesHeadingSliderImagesHeading
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    slider_heading: Attribute.String & Attribute.Required;
-    slider_img: Attribute.Media & Attribute.Required;
+    slider_heading: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    slider_img: Attribute.Media &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1112,6 +1129,12 @@ export interface ApiSliderImagesHeadingSliderImagesHeading
       'admin::user'
     > &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::slider-images-heading.slider-images-heading',
+      'oneToMany',
+      'api::slider-images-heading.slider-images-heading'
+    >;
+    locale: Attribute.String;
   };
 }
 
