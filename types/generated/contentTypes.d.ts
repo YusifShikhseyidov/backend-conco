@@ -1111,7 +1111,7 @@ export interface ApiSliderImagesHeadingSliderImagesHeading
       Attribute.Required &
       Attribute.SetPluginOptions<{
         i18n: {
-          localized: true;
+          localized: false;
         };
       }>;
     createdAt: Attribute.DateTime;
